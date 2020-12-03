@@ -22,7 +22,7 @@
 #pragma once
 
 //JUST uncomment the option for your machine
-// #define V6_330_TITAN_TMC 1
+ #define V6_330_TITAN_TMC 1
 // #define V6_330_TITAN_NO_TMC 1
 // #define V6_330_NO_TITAN_TMC 1
 // #define V6_330_NO_TITAN_NO_TMC 1
@@ -57,7 +57,7 @@
 
 // #define TFT_LVGL_UI
 // #define TFT_CLASSIC_UI
-// #define TFT_COLOR_UI
+#define TFT_COLOR_UI
 
 #if V6_330_TITAN_TMC
   #define MOTHERBOARD BOARD_CHITU3D_V6
@@ -386,7 +386,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Christian Lingner 03.12.2020)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -795,7 +795,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      150
+#define BED_MAXTEMP      120
 
 //===========================================================================
 //============================= PID Settings ================================
@@ -823,11 +823,11 @@
   #else
     // If we did not set specific parameters then we use one of the default one
     #ifndef DEFAULT_Kp
-      #define DEFAULT_Kp  22.20
-      #define DEFAULT_Ki   1.08
-      #define DEFAULT_Kd 114.00
-    #endif
-  #endif
+#define DEFAULT_Kp 16.93
+#define DEFAULT_Ki 1.46
+#define DEFAULT_Kd 49.19
+#endif
+#endif
 #endif // PIDTEMP
 
 //===========================================================================
@@ -1088,7 +1088,7 @@
 #if WITH_TMC && WITH_BMG
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 830 }
 #elif WITH_TMC && WITH_TITAN
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 764 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 848.9 }
 #elif WITH_TMC && !WITH_TITAN && !WITH_BMG
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 186 }
 #elif WITH_TITAN && !WITH_TMC
@@ -1363,7 +1363,7 @@
 #ifdef XY2_MODELS
 #define NOZZLE_TO_PROBE_OFFSET { -50, -10, 0 }
 #else
-#define NOZZLE_TO_PROBE_OFFSET { -35, -0, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -35, -0, -0.45 }
 #endif
 
 // Most probes should stay away from the edges of the bed, but
@@ -1524,7 +1524,7 @@
 // #define Y_BED_SIZE 330
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
+#define X_MIN_POS -8
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
@@ -1915,7 +1915,7 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 180
+#define PREHEAT_1_TEMP_HOTEND 190
 #define PREHEAT_1_TEMP_BED     50
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
@@ -2097,7 +2097,7 @@
  *
  * :{ 'en':'English', 'an':'Aragonese', 'bg':'Bulgarian', 'ca':'Catalan', 'cz':'Czech', 'da':'Danish', 'de':'German', 'el':'Greek', 'el_gr':'Greek (Greece)', 'es':'Spanish', 'eu':'Basque-Euskera', 'fi':'Finnish', 'fr':'French', 'gl':'Galician', 'hr':'Croatian', 'hu':'Hungarian', 'it':'Italian', 'jp_kana':'Japanese', 'ko_KR':'Korean (South Korea)', 'nl':'Dutch', 'pl':'Polish', 'pt':'Portuguese', 'pt_br':'Portuguese (Brazilian)', 'ro':'Romanian', 'ru':'Russian', 'sk':'Slovak', 'tr':'Turkish', 'uk':'Ukrainian', 'vi':'Vietnamese', 'zh_CN':'Chinese (Simplified)', 'zh_TW':'Chinese (Traditional)', 'test':'TEST' }
  */
-#define LCD_LANGUAGE en
+#define LCD_LANGUAGE de
 
 /**
  * LCD Character Set
